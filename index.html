@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,7 +32,7 @@
 
         <section id="main_content">
           <h1>
-<a id="leaflettimeline-020" class="anchor" href="#leaflettimeline-020" aria-hidden="true"><span class="octicon octicon-link"></span></a>Leaflet.timeline 0.3.0</h1>
+<a id="leaflettimeline-040" class="anchor" href="#leaflettimeline-040" aria-hidden="true"><span class="octicon octicon-link"></span></a>Leaflet.timeline 0.4.0</h1>
 
 <p>Show any changing geospatial data over time, from points to polygons.</p>
 
@@ -42,21 +42,49 @@ plugin. Please check out <a href="https://github.com/hallahan/LeafletPlayback">L
 some ideas.</p>
 
 <h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<h3>
+<a id="earthquakes" class="anchor" href="#earthquakes" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://skeate.github.io/Leaflet.timeline/earthquakes.html">Earthquakes</a>
+</h3>
+
+<p>USGS provides <a href="http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">GeoJSON(P) files</a> with earthquake data, including time and
+magnitude. For this example, that data is read, parsed to the right format
+(<code>start</code> and <code>end</code> values in the GeoJSON <code>properties</code>), and added to a
+<code>Leaflet.timeline</code>.</p>
+
+<h3>
+<a id="country-borders-after-wwii" class="anchor" href="#country-borders-after-wwii" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://skeate.github.io/Leaflet.timeline/borders.html">Country borders after WWII</a>
+</h3>
+
+<p>I found some historical country border data <a href="http://nils.weidmann.ws/projects/cshapes">here</a>, though unfortunately
+it was not in GeoJSON. I converted it with <a href="http://www.gdal.org/ogr2ogr.html">ogr2ogr</a>:</p>
+
+<pre><code>$ ogr2ogr -f "GeoJSON" \
+  -select CNTRY_NAME,COWSYEAR,COWSMONTH,COWSDAY,COWEYEAR,COWEMONTH,COWEDAY \
+  borders.json cshapes.shp
+</code></pre>
+
+<p>then wrangled the data into the right format (examples/borders-parse.js). After
+that, it was just a matter of passing the data to <code>Leaflet.timeline</code> and letting
+it handle everything.</p>
+
+<h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <p><code>Leaflet.timeline</code> is a subclass of <code>L.GeoJSON</code>, so use it as you would that.
 The data you pass in should be something like this:</p>
 
 <div class="highlight highlight-json"><pre>{
-  <span class="pl-s1"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>FeatureCollection<span class="pl-pds">"</span></span>,
-  <span class="pl-s1"><span class="pl-pds">"</span>features<span class="pl-pds">"</span></span>: [
+  <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>FeatureCollection<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>features<span class="pl-pds">"</span></span>: [
     {
-      <span class="pl-s1"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>Feature<span class="pl-pds">"</span></span>,
-      <span class="pl-s1"><span class="pl-pds">"</span>properties<span class="pl-pds">"</span></span>: {
-        <span class="pl-s1"><span class="pl-pds">"</span>start<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>1970-01-01<span class="pl-pds">"</span></span>,
-        <span class="pl-s1"><span class="pl-pds">"</span>end<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>2014-12-04<span class="pl-pds">"</span></span>
+      <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Feature<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>properties<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>start<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>1970-01-01<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>end<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>2014-12-04<span class="pl-pds">"</span></span>
       },
-      <span class="pl-s1"><span class="pl-pds">"</span>geometry<span class="pl-pds">"</span></span>: { <span class="pl-ii">...</span> }
+      <span class="pl-s"><span class="pl-pds">"</span>geometry<span class="pl-pds">"</span></span>: { <span class="pl-ii">...</span> }
     }
   ]
 }</pre></div>
@@ -68,9 +96,7 @@ The data you pass in should be something like this:</p>
 <h2>
 <a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
 
-<h4>
-<a id="all-geojsons-options" class="anchor" href="#all-geojsons-options" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://leafletjs.com/reference.html#geojson">all GeoJSON's options</a>
-</h4>
+<p>see also <a href="http://leafletjs.com/reference.html#geojson">all GeoJSON's options</a></p>
 
 <h4>
 <a id="start" class="anchor" href="#start" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>start</code>
@@ -153,6 +179,14 @@ step time.</p>
 both the map and the date update for every change. With complex data, this can
 slow things down, so set this to true to only update the displayed date.</p>
 
+<h4>
+<a id="intervalfromfeature" class="anchor" href="#intervalfromfeature" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>intervalFromFeature</code>
+</h4>
+
+<p>A function that should, given a feature, return an object with <code>start</code> and <code>end</code>
+properties, representing the start time and end time of the feature. By default
+it will use <code>feature.properties.start</code> and <code>feature.properties.end</code>.</p>
+
 <h2>
 <a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h2>
 
@@ -181,42 +215,31 @@ you throw at it.</p>
 on the map.</p>
 
 <h2>
-<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
-
-<h3>
-<a id="earthquakes" class="anchor" href="#earthquakes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Earthquakes</h3>
-
-<p><a href="http://skeate.github.io/Leaflet.timeline/earthquakes.html">Example here</a>. USGS provides <a href="http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">GeoJSON(P) files</a> with earthquake data,
-including time and magnitude. For this example, that data is read, parsed to the
-right format (<code>start</code> and <code>end</code> values in the GeoJSON <code>properties</code>), and added
-to a <code>Leaflet.timeline</code>.</p>
-
-<h3>
-<a id="country-borders-after-wwii" class="anchor" href="#country-borders-after-wwii" aria-hidden="true"><span class="octicon octicon-link"></span></a>Country borders after WWII</h3>
-
-<p><a href="http://skeate.github.io/Leaflet.timeline/borders.html">Example here</a>. I found some historical country border data <a href="http://nils.weidmann.ws/projects/cshapes">here</a>, though
-unfortunately it was not in GeoJSON. Converted it with <a href="http://www.gdal.org/ogr2ogr.html">ogr2ogr</a>:</p>
-
-<pre><code>$ ogr2ogr -f "GeoJSON" \
-  -select CNTRY_NAME,COWSYEAR,COWSMONTH,COWSDAY,COWEYEAR,COWEMONTH,COWEDAY \
-  borders.json cshapes.shp
-</code></pre>
-
-<p>Then wrangled the data into the right format (examples/borders-parse.js). After
-that, just pass the data to <code>Leaflet.timeline</code> and let it handle everything.</p>
-
-<h2>
 <a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span class="octicon octicon-link"></span></a>Change log</h2>
 
 <h3>
-  <a id="030" class="anchor" href="#030" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.0</h3>
+<a id="040" class="anchor" href="#040" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.4.0</h3>
 
 <ul>
-  <li>Fixed Pause button not turning back into Play button on playback completion</li>
-  <li>Fixed clicks on control buttons zooming map</li>
-  <li>Fixed `getDisplayed` and event timing</li>
-  <li>Major performance improvements</li>
-  <li>Add `waitToUpdateMap` option to allow dragging the slider without updating the map until user is done</li>
+<li>Fixed an issue where too wide of a range of dates would case playback to go
+backwards</li>
+<li>Added options to pass in methods to handle the data, so you can use a different
+format if you want</li>
+<li>Added a grunt build pipeline (thanks to <a href="https://github.com/vencax" class="user-mention">@vencax</a> for this and the two changes above)</li>
+<li>Fixed a bug where next/previous buttons wouldn't work as expected if input
+wasn't sorted (.. by sorting the input)</li>
+</ul>
+
+<h3>
+<a id="030" class="anchor" href="#030" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.0</h3>
+
+<ul>
+<li>Fixed Pause button not turning back into Play button on playback completion</li>
+<li>Fixed clicks on control buttons zooming map</li>
+<li>Fixed <code>getDisplayed</code> and event timing</li>
+<li>Major performance improvements</li>
+<li>Add <code>waitToUpdateMap</code> option to allow dragging the slider without updating
+the map until user is done</li>
 </ul>
 
 <h3>
@@ -240,7 +263,7 @@ reset to the beginning)</li>
 
         <footer>
           Leaflet.timeline is maintained by <a href="https://github.com/skeate">skeate</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
                   <script type="text/javascript">
