@@ -66,12 +66,12 @@
       });
 
       function updateList(timeline){
-        var displayed = timeline.getDisplayed();
+        var displayed = timeline.getLayers();
         var list = document.getElementById('displayed-list');
         list.innerHTML = "";
         displayed.forEach(function(quake){
           var li = document.createElement('li');
-          li.innerHTML = quake.properties.title;
+          li.innerHTML = quake.feature.properties.title;
           list.appendChild(li);
         });
       }
