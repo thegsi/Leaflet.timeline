@@ -1,12 +1,11 @@
 <html>
   <head>
     <title>Leaflet.timeline</title>
-    <script src="javascripts/leaflet.js"></script>
-    <script src="javascripts/moment.min.js"></script>
-    <script src="javascripts/leaflet.timeline.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" rel="stylesheet">
 
-    <link href="stylesheets/leaflet.css" rel="stylesheet">
-    <link href="stylesheets/leaflet.timeline.css" rel="stylesheet">
+    <script src="javascripts/leaflet.timeline.js"></script>
 
     <style>
       html, body{
@@ -56,12 +55,21 @@
               fillOpacity: 0.5
             }
           },
-          formatDate: function(date){
-            return moment(date).format("YYYY-MM-DD");
+          onEachFeature: function(feature, layer) {
+            layer.bindTooltip(feature.properties.name);
           },
           waitToUpdateMap: true
         });
+
+        var timelineControl = L.timelineSliderControl({
+          formatOutput: function(date){
+            return moment(date).format("YYYY-MM-DD");
+          },
+          enableKeyboardControls: true
+        });
         timeline.addTo(map);
+        timelineControl.addTo(map);
+        timelineControl.addTimelines(timeline);
       }
 
     </script>

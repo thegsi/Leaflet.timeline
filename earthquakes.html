@@ -1,12 +1,11 @@
 <html>
   <head>
     <title>Leaflet.timeline</title>
-    <script src="javascripts/leaflet.js"></script>
-    <script src="javascripts/moment.min.js"></script>
-    <script src="javascripts/leaflet.timeline.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" rel="stylesheet">
 
-    <link href="stylesheets/leaflet.css" rel="stylesheet">
-    <link href="stylesheets/leaflet.timeline.css" rel="stylesheet">
+    <script src="javascripts/leaflet.timeline.js"></script>
 
     <style>
       @import url(http://fonts.googleapis.com/css?family=Open+Sans); 
@@ -78,18 +77,23 @@
       }
 
       function eqfeed_callback(data){
-        // wrangle data into format Leaflet.timeline expects
-        // earthquake data only has a time, so we'll use that as a "start"
-        // and the "end" will be that + some value based on magnitude
-        data.features.forEach(function(quake){
-          var time = quake.properties.time;
-          quake.properties.start = time;
-          quake.properties.end   = time + quake.properties.mag * 1800000;
+        var getInterval = function(quake) {
+          // earthquake data only has a time, so we'll use that as a "start"
+          // and the "end" will be that + some value based on magnitude
+          // 18000000 = 30 minutes, so a quake of magnitude 5 would show on the
+          // map for 150 minutes or 2.5 hours
+          return {
+            start: quake.properties.time,
+            end:   quake.properties.time + quake.properties.mag * 1800000
+          };
+        };
+        var timelinecontrol = L.timelineSliderControl({
+          formatOutput: function(date){
+            return moment(date).format("YYYY-MM-DD HH:MM:SS");
+          }
         });
         var timeline = L.timeline(data, {
-          formatDate: function(date){
-            return moment(date).format("YYYY-MM-DD HH:MM:SS");
-          },
+          getInterval: getInterval,
           pointToLayer: function(data, latlng){
             var hue_min = 120;
             var hue_max = 0;
@@ -98,9 +102,11 @@
               radius: data.properties.mag * 3,
               color: "hsl("+hue+", 100%, 50%)",
               fillColor: "hsl("+hue+", 100%, 50%)"
-            });
+            }).bindPopup('<a href="' + data.properties.url + '">click for more info</a>');
           }
         });
+        timelineControl.addTo(map);
+        timelineControl.addTimelines(timeline);
         timeline.addTo(map);
         timeline.on('change', function(e){
           updateList(e.target);
