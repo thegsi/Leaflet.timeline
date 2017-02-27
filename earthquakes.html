@@ -87,7 +87,7 @@
             end:   quake.properties.time + quake.properties.mag * 1800000
           };
         };
-        var timelinecontrol = L.timelineSliderControl({
+        var timelineControl = L.timelineSliderControl({
           formatOutput: function(date){
             return moment(date).format("YYYY-MM-DD HH:MM:SS");
           }
