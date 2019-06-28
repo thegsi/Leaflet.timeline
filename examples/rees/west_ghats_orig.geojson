@@ -1,0 +1,610 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.497,19.019,140 ]
+    },
+    "properties": {
+    "Monastery Name":"Ambivale",
+    "Group":"Bor foot"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.535,18.721,744 ]
+    },
+    "properties": {
+    "Monastery Name":"Bedsa",
+    "Group":"Indrayani valley"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.481,18.729,709 ]
+    },
+    "properties": {
+    "Monastery Name":"Bhaja",
+    "Group":"Indrayani valley"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 72.947,18.568,51 ]
+    },
+    "properties": {
+    "Monastery Name":"Chaul",
+    "Group":"Chaul"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 72.958,18.572,101 ]
+    },
+    "properties": {
+    "Monastery Name":"Chaul Wagjai",
+    "Group":"Chaul"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.505,17.529,35 ]
+    },
+    "properties": {
+    "Monastery Name":"Chiplun",
+    "Group":"Kumbharli foot"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.534,17.534,39 ]
+    },
+    "properties": {
+    "Monastery Name":"Chiplun Kalambaste",
+    "Group":"Kumbharli foot"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.452,18.768,696 ]
+    },
+    "properties": {
+    "Monastery Name":"Devgad",
+    "Group":"Indrayani valley"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.961,17.365,757 ]
+    },
+    "properties": {
+    "Monastery Name":"Digevadi",
+    "Group":"Koyna valley"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.314,18.818,127 ]
+    },
+    "properties": {
+    "Monastery Name":"Halkhurd",
+    "Group":"Indrayani valley"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.734,18.747,683 ]
+    },
+    "properties": {
+    "Monastery Name":"Induri",
+    "Group":"Indrayani valley"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 72.828,19.466,273 ]
+    },
+    "properties": {
+    "Monastery Name":"Jivdhan",
+    "Group":"Kanheri environs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.884,19.186,782 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Ambika",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.888,19.182,788 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Bhimashankar",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.878,19.189,800 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Bhut Ling",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.911,19.18,771 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Dudharaya",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.891,19.246,727 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Isolated",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.888,19.243,856 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Lenyadri",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.873,19.192,831 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Manmodi West",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.86,19.197,921 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Sivneri East 1",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.86,19.198,921 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Sivneri East 2",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.86,19.199,903 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Sivneri East 3",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.86,19.201,892 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Sivneri East 4",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.856,19.194,915 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Sivneri South",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.857,19.197,923 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Sivneri West",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.836,19.209,818 ]
+    },
+    "properties": {
+    "Monastery Name":"Junnar Tulja",
+    "Group":"Junnar"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 72.905,19.208,140 ]
+    },
+    "properties": {
+    "Monastery Name":"Kanheri",
+    "Group":"Kanheri environs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 74.163,17.255,741 ]
+    },
+    "properties": {
+    "Monastery Name":"Karad Chachegaon East",
+    "Group":"Karad"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 74.162,17.257,664 ]
+    },
+    "properties": {
+    "Monastery Name":"Karad Chachegaon West",
+    "Group":"Karad"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 74.151,17.235,730 ]
+    },
+    "properties": {
+    "Monastery Name":"Karad Jakinwadi South",
+    "Group":"Karad"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 74.148,17.24,743 ]
+    },
+    "properties": {
+    "Monastery Name":"Karad Jakinwadi West",
+    "Group":"Karad"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 74.162,17.253,740 ]
+    },
+    "properties": {
+    "Monastery Name":"Karad Tip",
+    "Group":"Karad"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 72.948,18.876,150 ]
+    },
+    "properties": {
+    "Monastery Name":"Karanja",
+    "Group":"Chaul"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.47,18.784,669 ]
+    },
+    "properties": {
+    "Monastery Name":"Karle",
+    "Group":"Indrayani valley"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.398,17.721,41 ]
+    },
+    "properties": {
+    "Monastery Name":"Khed",
+    "Group":"Kumbharli foot"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.384,18.839,220 ]
+    },
+    "properties": {
+    "Monastery Name":"Kondane",
+    "Group":"Bor foot"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 72.874,19.13,71 ]
+    },
+    "properties": {
+    "Monastery Name":"Kondivte",
+    "Group":"Kanheri environs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.074,18.285,95 ]
+    },
+    "properties": {
+    "Monastery Name":"Kuda",
+    "Group":"Kuda"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 72.857,19.219,16 ]
+    },
+    "properties": {
+    "Monastery Name":"Magathane",
+    "Group":"Kanheri environs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.43,18.066,58 ]
+    },
+    "properties": {
+    "Monastery Name":"Mahad Kol",
+    "Group":"Mahad"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.404,18.087,70 ]
+    },
+    "properties": {
+    "Monastery Name":"Mahad Pale",
+    "Group":"Mahad"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.748,19.941,765 ]
+    },
+    "properties": {
+    "Monastery Name":"Nasik Pandu Lena",
+    "Group":"Nasik"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.344,18.509,217 ]
+    },
+    "properties": {
+    "Monastery Name":"Nenavali/Karsambla",
+    "Group":"Savasni foot"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 74.047,16.824,948 ]
+    },
+    "properties": {
+    "Monastery Name":"Pandavadara",
+    "Group":"Brahmapuri"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.5,18.733,873 ]
+    },
+    "properties": {
+    "Monastery Name":"Patan Lohagad",
+    "Group":"Indrayani valley"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 74.191,16.791,665 ]
+    },
+    "properties": {
+    "Monastery Name":"Pohale",
+    "Group":"Brahmapuri"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.704,18.692,642 ]
+    },
+    "properties": {
+    "Monastery Name":"Shelarwadi",
+    "Group":"Indrayani valley"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.937,18.143,717 ]
+    },
+    "properties": {
+    "Monastery Name":"Sirwal",
+    "Group":"Wai environs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.871,17.415,693 ]
+    },
+    "properties": {
+    "Monastery Name":"Tamkhane",
+    "Group":"Koyna valley"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.319,18.569,318 ]
+    },
+    "properties": {
+    "Monastery Name":"Thanale/Nadsur",
+    "Group":"Savasni foot"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.894,17.918,819 ]
+    },
+    "properties": {
+    "Monastery Name":"Wai Bhadawan",
+    "Group":"Wai environs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.916,17.994,868 ]
+    },
+    "properties": {
+    "Monastery Name":"Wai Lohare",
+    "Group":"Wai environs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.87,17.997,889 ]
+    },
+    "properties": {
+    "Monastery Name":"Wai Pandavgad",
+    "Group":"Wai environs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.994,17.354,733 ]
+    },
+    "properties": {
+    "Monastery Name":"Yeradvadi",
+    "Group":"Koyna valley"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.942,17.382,716 ]
+    },
+    "properties": {
+    "Monastery Name":"Yerphale",
+    "Group":"Koyna valley"
+    }
+  }
+]
+}

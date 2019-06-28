@@ -272,16 +272,16 @@ L.TimelineSliderControl = L.Control.extend({
 
   /**
    * DOM event handler to disable dragging on map
-   * 
+   *
    * @private
    */
   _disableMapDragging() {
     this.map.dragging.disable();
   },
 
-  /** 
+  /**
    * DOM event handler to enable dragging on map
-   * 
+   *
    * @private
    */
   _enableMapDragging() {
@@ -329,6 +329,7 @@ L.TimelineSliderControl = L.Control.extend({
       this.timelines.forEach(timeline => timeline.setTime(time));
     }
     if (this._output) {
+      debugger
       this._output.innerHTML = this.options.formatOutput(time);
     }
   },
