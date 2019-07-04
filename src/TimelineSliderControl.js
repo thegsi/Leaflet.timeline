@@ -33,14 +33,14 @@ L.TimelineSliderControl = L.Control.extend({
    */
   initialize(options = {}) {
     const defaultOptions = {
-      duration:               10000,
+      duration: 10000,
       enableKeyboardControls: false,
-      enablePlayback:         true,
-      formatOutput:           output => `${output || ''}`,
-      showTicks:              true,
-      waitToUpdateMap:        false,
-      position:               'bottomleft',
-      steps:                  1000,
+      enablePlayback: true,
+      formatOutput: output => `${output || ''}`,
+      showTicks: true,
+      waitToUpdateMap: false,
+      position: 'bottomleft',
+      steps: 1000,
     };
     this.timelines = [];
     L.Util.setOptions(this, defaultOptions);
@@ -233,6 +233,7 @@ L.TimelineSliderControl = L.Control.extend({
    * Reconstructs the <datalist>. Should be called when new data comes in.
    */
   _rebuildDataList() {
+    //Old Code
     const datalist = this._datalist;
     while (datalist.firstChild) {
       datalist.removeChild(datalist.firstChild);
@@ -240,6 +241,28 @@ L.TimelineSliderControl = L.Control.extend({
     const datalistSelect = L.DomUtil.create('select', '', this._datalist);
     this._getTimes().forEach((time) => {
       L.DomUtil.create('option', '', datalistSelect).value = time;
+    });
+
+
+    // My code. Add cells to
+    var max = this._timeSlider.max
+    var min = this._timeSlider.min
+    var width = max - min;
+    var times = this._getTimes();
+
+    times.forEach((time, i) => {
+      var timeClass = 'time-' + time
+      L.DomUtil.create('td', timeClass, this.timeVisualise);
+      var cell = time - times[i-1] || 0
+      var cellPercent = cell / width * 100;
+      var cellPercentAdj = cellPercent
+
+      d3.select('.' + timeClass)
+          // .style('width', function() { return 1 / length * 100 + "%"; })
+          .style('width', cellPercentAdj.toFixed(2).toString() + '%')
+          .style('height', '100%')
+          .style('background-color', 'white')
+
     });
   },
 
@@ -295,7 +318,9 @@ L.TimelineSliderControl = L.Control.extend({
    * @param {HTMLElement} container The container to which to add the input
    */
   _makeSlider(container) {
-    const slider = L.DomUtil.create('input', 'time-slider', container);
+    const sliderContainer = L.DomUtil.create('div', 'slider-container', container);
+    this._makeTimeVisualise(sliderContainer)
+    const slider = L.DomUtil.create('input', 'time-slider', sliderContainer);
     slider.type = 'range';
     slider.min = this.start || 0;
     slider.max = this.end || 0;
@@ -307,6 +332,16 @@ L.TimelineSliderControl = L.Control.extend({
     L.DomEvent.on(document, 'pointerup mouseup touchend', this._enableMapDragging, this);
   },
 
+  _makeTimeVisualise(sliderContainer) {
+    const timeVisualise = L.DomUtil.create(
+      'table',
+      'chart',
+      sliderContainer
+    )
+
+    this.timeVisualise = timeVisualise;
+  },
+
   _makeOutput(container) {
     this._output = L.DomUtil.create('output', 'time-text', container);
     this._output.innerHTML = this.options.formatOutput(this.start);
@@ -314,10 +349,17 @@ L.TimelineSliderControl = L.Control.extend({
 
   _onKeydown(e) {
     switch (e.keyCode || e.which) {
-      case 37: this.prev(); break;
-      case 39: this.next(); break;
-      case 32: this.toggle(); break;
-      default: return;
+      case 37:
+        this.prev();
+        break;
+      case 39:
+        this.next();
+        break;
+      case 32:
+        this.toggle();
+        break;
+      default:
+        return;
     }
     e.preventDefault();
   },
@@ -329,7 +371,6 @@ L.TimelineSliderControl = L.Control.extend({
       this.timelines.forEach(timeline => timeline.setTime(time));
     }
     if (this._output) {
-      debugger
       this._output.innerHTML = this.options.formatOutput(time);
     }
   },
@@ -353,7 +394,8 @@ L.TimelineSliderControl = L.Control.extend({
    *
    * @param {...L.Timeline} timelines The `L.Timeline`s to register
    */
-  addTimelines(...timelines) {
+  addTimelines(timelines) {
+    if (!timelines.length) timelines = [timelines]
     this.pause();
     const timelineCount = this.timelines.length;
     timelines.forEach((timeline) => {
@@ -413,7 +455,7 @@ L.TimelineSliderControl = L.Control.extend({
     this.container.classList.remove('playing');
 
     if (this.syncedControl && !fromSynced) {
-      this.syncedControl.map(function (control) {
+      this.syncedControl.map(function(control) {
         control.pause(true);
       })
     }
@@ -440,7 +482,7 @@ L.TimelineSliderControl = L.Control.extend({
     }
 
     if (this.syncedControl && !fromSynced) {
-      this.syncedControl.map(function (control) {
+      this.syncedControl.map(function(control) {
         control.play(true);
       });
     }
@@ -464,8 +506,10 @@ L.TimelineSliderControl = L.Control.extend({
   setTime(time) {
     if (this._timeSlider) this._timeSlider.value = +time;
     this._sliderChanged({
-      type:   'change',
-      target: { value: time },
+      type: 'change',
+      target: {
+        value: time
+      },
     });
   },
 
